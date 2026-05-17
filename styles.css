@@ -1,0 +1,1244 @@
+@font-face {
+  font-family: "Ekran";
+  src: url("fonts/Ekran/ekran_bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("fonts/Gilroy/Gilroy-Light_0.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("fonts/Gilroy/Gilroy-Regular_0.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("fonts/Gilroy/Gilroy-Medium_0.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("fonts/Gilroy/Gilroy-Semibold_0.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("fonts/Gilroy/Gilroy-Bold_0.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("fonts/Gilroy/Gilroy-Extrabold_0.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("fonts/Gilroy/Gilroy-Black_0.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Gilroy", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+main {
+  min-height: 100%;
+}
+
+:root {
+  --bg: #dddddd;
+  --ink: #0b0c10;
+  --red: #e0123a;
+  --paper: #f7f7f7;
+  --dark: #0a0b10;
+  --dark-2: #12131b;
+  --line: rgba(0, 0, 0, 0.16);
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+
+  --container: 1240px;
+  --pad: 16px;
+
+  --h2: 56px;
+  --h2-lh: 0.92;
+  --lead: 24px;
+  --p: 18px;
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --pad: 80px;
+    --h2: 88px;
+    --lead: 28px;
+    --p: 18px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+.container {
+  width: min(calc(100% - (var(--pad) * 2)), var(--container));
+  margin-inline: auto;
+}
+
+.skip {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  transform: translateY(-200%);
+  z-index: 200;
+}
+
+.skip:focus {
+  transform: translateY(0);
+  outline: none;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 14px;
+  padding: 14px 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand__mark {
+  width: 34px;
+  height: 18px;
+  background: url("Satan%20Hussein%20Website%20(Copy)%20(3)/Vector.png") center / contain no-repeat;
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 18px;
+  margin-left: auto;
+}
+
+.nav__link {
+  position: relative;
+  font-family: "Gilroy", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  padding: 10px 12px;
+}
+
+.nav__link::before {
+  content: "";
+  position: absolute;
+  inset: -6px -10px;
+  background: url("Satan%20Hussein%20Website%20(Copy)%20(5)/Vector%2042.png") center / 100% 100% no-repeat;
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 140ms ease, transform 140ms ease;
+  pointer-events: none;
+}
+
+.nav__link:hover::before,
+.nav__link:focus-visible::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav__link:focus-visible {
+  outline: none;
+}
+
+.burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.burger__lines {
+  width: 26px;
+  height: 14px;  
+  position: relative;
+}
+
+.burger__lines::before,
+.burger__lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--ink);
+}
+
+.burger__lines::before {
+  top: 0;
+}
+
+.burger__lines::after {
+  bottom: 0;
+}
+
+@media (min-width: 1440px) {
+  .nav {
+    display: flex;
+  }
+  .burger {
+    display: none;
+  }
+}
+
+/* Menu dialog */
+.menu {
+  width: min(92vw, 520px);
+  max-width: 520px;
+  border: 0;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(215, 215, 215, 0.98);
+  box-shadow: var(--shadow);
+}
+
+.menu::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.menu__close {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.menu__nav {
+  display: grid;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.menu__link {
+  position: relative;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  text-align: center;
+  text-transform: lowercase;
+  padding: 10px 14px;
+}
+
+.menu__link::before {
+  content: "";
+  position: absolute;
+  inset: -10px -14px;
+  background: url("Satan%20Hussein%20Website%20(Copy)%20(5)/Vector%2039.png") center / 100% 100% no-repeat;
+  opacity: 0;
+  transition: opacity 140ms ease;
+  pointer-events: none;
+}
+
+.menu__link:hover::before,
+.menu__link:focus-visible::before {
+  opacity: 1;
+}
+
+.menu__link:focus-visible {
+  outline: none;
+}
+
+/* Typography helpers */
+.h2 {
+  margin: 0;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-size: var(--h2);
+  line-height: var(--h2-lh);
+  letter-spacing: -0.01em;
+  text-transform: lowercase;
+  transform: skewX(-8deg);
+}
+
+.h2--invert {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.lead {
+  margin: 18px 0 0;
+  font-size: var(--lead);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.p {
+  margin: 18px 0 0;
+  font-size: var(--p);
+  line-height: 1.45;
+}
+
+.section {
+  padding: 42px 0;
+}
+
+@media (min-width: 1440px) {
+  .section {
+    padding: 88px 0;
+  }
+}
+
+.section--dark {
+  background: radial-gradient(1200px 600px at 20% 0%, rgba(255, 255, 255, 0.06), transparent 60%), var(--dark);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  user-select: none;
+  cursor: pointer;
+  transition: transform 140ms ease, background-color 140ms ease, color 140ms ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--red);
+  color: #fff;
+  border: 6px solid #fff;
+  box-shadow: 0 18px 44px rgba(224, 18, 58, 0.18);
+}
+
+.btn--primary:hover {
+  background: #11121a;
+}
+
+.btn--price {
+  width: 100%;
+  justify-content: center;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.92);
+  border: 4px solid rgba(255, 255, 255, 0.92);
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@media (min-width: 1440px) {
+  .btn {
+    height: 78px;
+    font-size: 32px;
+    padding: 0 34px;
+  }
+}
+
+/* Hero */
+.hero {
+  /* padding: 34px 0 26px; */
+}
+
+.hero__grid {
+  display: grid;
+  gap: 22px;
+  grid-template-areas:
+    "copy"
+    "media"
+    "cta";
+}
+
+.hero__copy {
+  grid-area: copy;
+}
+.hero__copy__wrap{
+ display: flex;
+}
+.hero__media {
+  grid-area: media;
+}
+
+.hero__cta {
+  grid-area: cta;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+}
+
+.hero__btn {
+  width: min(100%, 520px);
+}
+
+.hero__title {
+  margin: 0;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  rotate: 2deg;
+}
+
+.hero__titleLine {
+  display: block;
+}
+
+.hero__lead {
+  margin: 16px 0 0;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.launch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 18px 20px;
+}
+
+.launch__ring {
+  position: absolute;
+  inset: -8px -14px;
+  background: url("Satan%20Hussein%20Website%20(Copy)%20(4)/Vector%2024.png") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.launch__text {
+  position: relative;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.hero__footnote {
+  margin: 18px 0 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+.hero__media {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.hero__collage {
+  width: min(100%, 520px);
+  /* filter: drop-shadow(0 22px 40px rgba(0, 0, 0, 0.12)); */
+}
+
+@media (min-width: 1440px) {
+  .hero {
+    padding: 70px 0 40px;
+  }
+  .hero__grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 44px;
+    grid-template-areas:
+      "copy media"
+      "cta media";
+  }
+  .hero__title {
+    font-size: 120px;
+  }
+  .hero__footnote {
+    text-align: left;
+  }
+  .hero__cta {
+    justify-items: start;
+  }
+  .hero__btn {
+    width: auto;
+  }
+  .hero__collage {
+    width: 100%;
+    max-width: 720px;
+  }
+}
+
+/* Two column layout */
+.twoCol {
+  display: grid;
+  gap: 26px;
+  align-items: start;
+}
+
+@media (min-width: 1440px) {
+  .twoCol {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 46px;
+    align-items: center;
+  }
+}
+
+/* Tape */
+.tape {
+  position: relative;
+  display: inline-flex;
+  margin-top: 22px;
+  padding: 14px 16px;
+}
+
+.tape__bg {
+  position: absolute;
+  inset: -8px -18px;
+  background: url("Satan%20Hussein%20Website%20(Copy)%20(4)/Electrical%20Tape%2014%201.png") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.tape__text {
+  position: relative;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  transform: skewX(-8deg);
+}
+
+.tape--wide {
+  display: flex;
+  width: 100%;
+}
+
+.tape--wide .tape__bg {
+  inset: -10px -10px;
+}
+
+/* Ovals list */
+.ovals {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.oval {
+  position: relative;
+  padding: 18px 22px;
+  min-height: 74px;
+}
+
+.oval__ring {
+  position: absolute;
+  inset: -8px -14px;
+  background: url("Satan%20Hussein%20Website%20(Copy)%20(4)/Vector%2022.png") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.oval__text {
+  position: relative;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+@media (min-width: 1440px) {
+  .oval__text {
+    font-size: 22px;
+  }
+}
+
+/* Collage labels */
+.collageStats {
+  position: relative;
+}
+
+.collageStats__img {
+  width: min(100%, 520px);
+  margin-inline: auto;
+}
+
+.collageStats__labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.collageStats__label {
+  position: absolute;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: lowercase;
+}
+
+.collageStats__label--streams {
+  right: 16%;
+  top: 28%;
+}
+
+.collageStats__label--credits {
+  right: 12%;
+  top: 55%;
+  color: var(--red);
+}
+
+.collageStats__label--years {
+  right: 20%;
+  bottom: 20%;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Video block */
+.video {
+  margin-top: 28px;
+  display: grid;
+  place-items: center;
+  height: 540px;
+  border-radius: 0;
+  background: radial-gradient(900px 360px at 30% 20%, rgba(255, 255, 255, 0.06), transparent 70%), var(--dark);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.video__play {
+  width: 0;
+  height: 0;
+  border-left: 90px solid #fff;
+  border-top: 52px solid transparent;
+  border-bottom: 52px solid transparent;
+  transform: translateX(10px);
+}
+
+@media (min-width: 1440px) {
+  .video {
+    height: 620px;
+  }
+  .video__play {
+    border-left-width: 140px;
+    border-top-width: 82px;
+    border-bottom-width: 82px;
+  }
+}
+
+/* Course list */
+.list {
+  margin: 18px 0 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 10px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.certificate {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 16px;
+  background: radial-gradient(700px 120px at 30% 0%, rgba(255, 255, 255, 0.08), transparent 70%), #0f1017;
+  color: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+}
+
+.certificate__plus {
+  width: 56px;
+  height: 56px;
+}
+
+.certificate__text {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.courseStats {
+  margin-top: 24px;
+  position: relative;
+  width: min(100%, 520px);
+  margin-inline: auto;
+}
+
+.courseStats__labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+}
+
+.courseStats__label {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.92);
+  transform: skewX(-8deg);
+}
+
+.courseStats__label--days {
+  left: 50%;
+  top: 42%;
+  transform: translateX(-30%) skewX(-8deg);
+  font-size: 20px;
+}
+
+.courseStats__label--modules {
+  right: 18%;
+  top: 62%;
+  font-size: 22px;
+}
+
+/* Modules */
+.modules {
+  margin-top: 24px;
+  background: radial-gradient(1000px 600px at 40% 0%, rgba(255, 255, 255, 0.06), transparent 60%), var(--dark);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 28px 18px;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.modules__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 18px;
+}
+
+.modules__list li {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.modules__n {
+  font-weight: 700;
+  opacity: 0.92;
+  font-size: 18px;
+}
+
+.modules__t {
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+  transform: skewX(-8deg);
+}
+
+.modules__logo {
+  margin-top: 34px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 0.9;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.modules__dots {
+  letter-spacing: 0.12em;
+}
+
+.modules__word {
+  letter-spacing: 0.28em;
+  font-size: 18px;
+}
+
+@media (min-width: 1440px) {
+  .modules {
+    padding: 48px 44px;
+  }
+  .modules__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 34px;
+  }
+  .modules__list li {
+    grid-template-columns: 110px 1fr;
+  }
+  .modules__t {
+    font-size: 34px;
+  }
+}
+
+/* Audience cards */
+.cards {
+  margin-top: 26px;
+  display: grid;
+  gap: 14px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  padding: 18px 18px;
+}
+
+.card--red {
+  background: var(--red);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.card__title {
+  margin: 0;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+  transform: skewX(-8deg);
+}
+
+.card__text {
+  margin: 12px 0 0;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+@media (min-width: 1440px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .card {
+    padding: 22px 22px;
+  }
+  .card__title {
+    font-size: 32px;
+  }
+}
+
+/* Pricing */
+.pricesHeader {
+  display: grid;
+  gap: 14px;
+  align-items: start;
+}
+
+.pricesHeader__note {
+  margin: 0;
+  max-width: 56ch;
+  font-size: 20px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.pricing {
+  margin-top: 24px;
+  display: grid;
+  gap: 18px;
+}
+
+.priceCard {
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--ink);
+  border-radius: 18px;
+  padding: 24px 18px 22px;
+  position: relative;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.22);
+}
+
+.priceCard__label {
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: var(--red);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  text-transform: lowercase;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
+}
+
+.priceCard__label--plus {
+  background: var(--red);
+}
+
+.priceCard__body {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.priceCard__body p {
+  margin: 0;
+}
+
+.priceCard__price {
+  margin-top: 18px;
+  text-align: center;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.priceCard__num {
+  font-size: 64px;
+  letter-spacing: -0.02em;
+}
+
+.focus {
+  position: relative;
+  margin-top: 6px;
+  padding: 20px 18px;
+}
+
+.focus__ring {
+  position: absolute;
+  inset: -8px -10px;
+  background: url("Satan%20Hussein%20Website%20(Copy)%20(4)/Vector%2023.png") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.focus__text {
+  position: relative;
+  margin: 0;
+}
+
+.priceCard .btn {
+  margin-top: 18px;
+  height: 76px;
+  font-size: 30px;
+  border-width: 6px;
+}
+
+
+@media (min-width: 1440px) {
+  .pricesHeader {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+  .pricing {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 46px;
+  }
+  .priceCard {
+    padding: 40px 34px 34px;
+  }
+  .priceCard__label {
+    font-size: 36px;
+    top: -22px;
+  }
+  .priceCard__num {
+    font-size: 76px;
+  }
+}
+
+/* Reviews */
+.reviews {
+  margin-top: 26px;
+}
+
+.reviews__viewport {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(100%, 520px);
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 2px 18px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.reviews__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.review {
+  scroll-snap-align: start;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 18px;
+  padding: 18px 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.review__tag {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 16px;
+  background: var(--red);
+  color: #fff;
+  border-radius: 16px;
+  transform: rotate(-2deg);
+  margin: 6px 0 14px;
+}
+
+.review__name {
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.review__role {
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.review__text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.reviews__controls {
+  margin-top: 14px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  width: 90px;
+  height: 64px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.arrow--dark {
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+}
+
+@media (min-width: 1440px) {
+  .reviews__viewport {
+    grid-auto-columns: min(100%, 820px);
+  }
+  .review {
+    padding: 22px 22px;
+  }
+  .review__name {
+    font-size: 34px;
+  }
+}
+
+/* Contacts */
+.contacts {
+  position: relative;
+  padding-top: 34px;
+}
+
+.toTop {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.contacts__list {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: grid;
+  gap: 14px;
+  font-size: 20px;
+}
+
+.contacts__list li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.icon {
+  opacity: 0.85;
+}
+
+.contacts__logos {
+  margin-top: 40px;
+  display: grid;
+  gap: 10px;
+  align-items: center;
+  justify-items: start;
+  opacity: 0.9;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+}
+
+.contacts__dots {
+  letter-spacing: 0.12em;
+}
+
+.contacts__word {
+  letter-spacing: 0.28em;
+}
+
+.contacts__name {
+  font-size: 42px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.contacts__zigzag {
+  font-size: 28px;
+  letter-spacing: 0.1em;
+}
+
+.contacts__foot {
+  margin: 30px 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  text-align: center;
+}
+}
+
+/* Mobile-first: 375px canvas */
+.page--mobile {
+  display: block;
+  /* width: min(100%, 375px); */
+  margin: 0 auto;
+}
+
+.shot {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Desktop: 1440px canvas */
+@media (min-width: 1440px) {
+  .page--mobile {
+    display: none;
+  }
+
+  .page--desktop {
+    display: block;
+    width: 1440px;
+    margin: 0 auto;
+  }
+}
