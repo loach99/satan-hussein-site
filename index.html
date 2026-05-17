@@ -12,22 +12,34 @@
 <body>
   <a class="skip" href="#content">Перейти к содержимому</a>
 
-  <header class="header" id="top">
-    <div class="container header__inner">
+  <header class="mast" id="top">
 
-      <nav class="nav" aria-label="Навигация">
-        <a class="nav__link" href="#about">обо мне</a>
-        <a class="nav__link" href="#studio">о студии</a>
-        <a class="nav__link" href="#course">о курсе</a>
-        <a class="nav__link" href="#prices">цены</a>
-        <a class="nav__link" href="#reviews">отзывы</a>
-        <a class="nav__link" href="#contacts">контакты</a>
-      </nav>
+    <div class="container mast__top">
+      <div class="mast__zigzag" aria-hidden="true">
+        <img class="" src="img/Logo.svg" alt="" loading="eager" decoding="async" />
+        <div class="mast__tagline">авторский офлайн курс по сведению от Satan Hussein</div>
+      </div>
+
 
       <button class="burger" type="button" aria-label="Открыть меню" aria-haspopup="dialog" data-menu-open>
         <span class="burger__lines" aria-hidden="true"></span>
       </button>
+
+      <div class="container mast__mid" aria-hidden="true">
+        <!-- <span class="mast__dots">( ( ( ●●</span>
+        <span class="mast__word">DRKSDRCRDS</span> -->
+        <img class="" src="img/Logo-text.svg" alt="" loading="eager" decoding="async" />
+      </div>
     </div>
+
+    <nav class="container nav" aria-label="Навигация">
+      <a class="nav__link" href="#about">обо мне</a>
+      <a class="nav__link" href="#studio">о студии</a>
+      <a class="nav__link" href="#course">о курсе</a>
+      <a class="nav__link" href="#prices">цены</a>
+      <a class="nav__link" href="#reviews">отзывы</a>
+      <a class="nav__link" href="#contacts">контакты</a>
+    </nav>
   </header>
 
   <dialog class="menu" aria-label="Меню" data-menu>
@@ -44,78 +56,43 @@
 
   <main id="content">
     <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__copy">
-          <div class="hero__copy__wrap">
-            <h1 class="hero__title">
-              <span class="hero__titleLine">satan</span>
-              <span class="hero__titleLine">hussein</span>
-            </h1>
-            <p class="hero__lead">
-              Проводит живой курс по сведению<br />
-              на студии Dark Side Records.
-            </p>
-
+      <div class="container ">
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <div class="hero__copy__wrap">
+              <h1 class="hero__title">
+                <span class="hero__titleLine">satan</span>
+                <span class="hero__titleLine">hussein</span>
+              </h1>
+              <p class="hero__lead">
+                Проводит живой курс по сведению<br />
+                на студии Dark Side Records.
+              </p>
+            </div>
+            <div class="hero__cta">
+              <a class="btn btn--primary hero__btn" href="#prices">записаться сейчас!</a>
+              <div class="launch" aria-label="Дата запуска">
+                <span class="launch__ring" aria-hidden="true"></span>
+                <span class="launch__text">запуск курса — 13 марта</span>
+              </div>
+            </div>
           </div>
 
-          <div class="launch">
-            <span class="launch__ring" aria-hidden="true"></span>
-            <span class="launch__text">запуск курса — 13 марта</span>
+          <div class="hero__media" aria-hidden="true">
+            <img class="hero__collage" src="img/collage-hero.svg" alt="" loading="eager" decoding="async" />
+            <div class="hero__mediaNote" aria-hidden="true">
+              <span class="hero__mediaNoteText">авторский офлайн курс по сведению от Satan Hussein</span>
+              <span class="hero__mediaNoteZigzag"></span>
+            </div>
           </div>
-        </div>
-
-        <div class="hero__media" aria-hidden="true">
-          <img class="hero__collage" src="Satan%20Hussein%20Website%20(Copy)%20(4)/Group%2012.png" alt=""
-            loading="eager" decoding="async" />
-        </div>
-
-        <div class="hero__cta">
-          <a class="btn btn--primary hero__btn" href="#prices">записаться сейчас!</a>
-          <p class="hero__footnote">авторский офлайн курс по сведению от Satan Hussein</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="about">
       <div class="container twoCol">
-        <div class="twoCol__copy">
-          <h2 class="h2">мой путь</h2>
-          <p class="lead">От сведения дома до собственной студии в центре Москвы.</p>
-          <p class="p">
-            Это не случайность, а результат множества экспериментов, поисков и принятых решений. За любым видимым
-            успехом стоит опыт, состоящий из ошибок, и путь без быстрых рецептов и волшебных кнопок.
-          </p>
-          <p class="p">
-            Цель моего курса — помочь тебе сократить путь к качественному звуку и создать прочный фундамент, на котором
-            ты сможешь уверенно развиваться дальше.
-          </p>
-
-          <div class="tape">
-            <span class="tape__bg" aria-hidden="true"></span>
-            <span class="tape__text">работал над релизами:</span>
-          </div>
-
-          <div class="ovals">
-            <div class="oval">
-              <span class="oval__ring" aria-hidden="true"></span>
-              <div class="oval__text">
-                <div>Bittuev — Братик</div>
-                <div>G4OUR, MAYOT — Растёт</div>
-              </div>
-            </div>
-            <div class="oval">
-              <span class="oval__ring" aria-hidden="true"></span>
-              <div class="oval__text">
-                <div>RAM — Работяга</div>
-                <div>Obladaet — 00:00</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="twoCol__media collageStats" aria-label="Достижения">
-          <img class="collageStats__img" src="Satan%20Hussein%20Website%20(Copy)%20(4)/коллаж-для-страницы-2-v3.png"
-            alt="" loading="lazy" decoding="async" />
+          <img class="collageStats__img" src="img/collage-about.svg" alt="" loading="lazy" decoding="async" />
           <div class="collageStats__labels" aria-hidden="true">
             <div class="collageStats__label collageStats__label--streams">
               <span class="collageStats__small">млрд стримов</span>
@@ -128,17 +105,70 @@
             </div>
           </div>
         </div>
+        <div class="twoCol__copy">
+          <h2 class="h2">мой путь</h2>
+          <p class="lead" style="width: 379px;">От сведения дома до собственной студии в центре Москвы.</p>
+          <p class="p" style="width: 379px;">
+            Это не случайность, а результат множества экспериментов, поисков и принятых решений. За любым видимым
+            успехом стоит опыт, состоящий из ошибок, и путь без быстрых рецептов и волшебных кнопок.
+          </p>
+          <p class="p" style="width: 379px;">
+            Цель моего курса — помочь тебе сократить путь к качественному звуку и создать прочный фундамент, на котором
+            ты сможешь уверенно развиваться дальше.
+          </p>
+
+          <div class="tape" style="width: 437px; height: 137px;">
+            <span class="tape__bg" aria-hidden="true"></span>
+            <span class="tape__text">работал над релизами:</span>
+          </div>
+
+          <div class="ovals">
+            <div class="oval oval-bittuev">
+              <span class="oval__ring" aria-hidden="true"></span>
+              <div class="oval__text">
+                <div>Bittuev — Братик</div>
+              </div>
+            </div>
+            <div class="oval oval-mayot">
+              <span class="oval__ring" aria-hidden="true"></span>
+              <div class="oval__text" style="left: 50px;">
+                <div>G4OUR, MAYOT — Растёт</div>
+              </div>
+            </div>
+            <div class="oval oval-ram">
+              <span class="oval__ring" aria-hidden="true"></span>
+              <div class="oval__text">
+                <div>RAM — Работяга</div>
+              </div>
+            </div>
+            <div class="oval oval-obla">
+              <span class="oval__ring" aria-hidden="true"></span>
+              <div class="oval__text">
+                <div>Obladaet — 00:00</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section" id="studio">
       <div class="container">
-        <h2 class="h2">dark side rec.</h2>
-        <p class="lead">Видео-экскурсия по студии DSR, где проходит обучение и создаются треки студентов курса.</p>
-
+        <div class="video-header-wrap">
+          <div class="video-header">
+            <h2 class="h2" style="rotate: -2deg;">dark side rec.</h2>
+            <p class="lead" style="width: 360px; margin: 0;">Видео-экскурсия по студии DSR, где проходит обучение и
+              создаются треки студентов курса.</p>
+          </div>
+        </div>
+        <img class="video__frame video__frame-top" src="img/video/video-collage-top.svg" alt="" aria-hidden="true"
+          loading="lazy" decoding="async" />
         <a class="video" href="#" aria-label="Смотреть видео (ссылка будет добавлена)">
           <span class="video__play" aria-hidden="true"></span>
         </a>
+        <img class="video__frame video__frame-bottom" src="img/video/video-collage-bottom.svg" alt=""
+          aria-hidden="true" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -164,16 +194,14 @@
         </ul>
 
         <div class="certificate">
-          <img class="certificate__plus" src="Satan%20Hussein%20Website%20(Copy)%20(4)/Group%2025.png" alt=""
-            loading="lazy" decoding="async" />
+          <img class="certificate__plus" src="img/icon-plus.png" alt="" loading="lazy" decoding="async" />
           <div class="certificate__text">
             Сертификат от Dark Side Records и стажировка с возможностью дальнейшего сотрудничества.
           </div>
         </div>
 
         <div class="courseStats" aria-label="Факты о курсе">
-          <img class="courseStats__img" src="Satan%20Hussein%20Website%20(Copy)%20(3)/коллаж-для-страницы-3-mob%201.png"
-            alt="" loading="lazy" decoding="async" />
+          <img class="courseStats__img" src="img/collage-course.png" alt="" loading="lazy" decoding="async" />
           <div class="courseStats__labels" aria-hidden="true">
             <div class="courseStats__label courseStats__label--days">дней обучения</div>
             <div class="courseStats__label courseStats__label--modules">модулей</div>

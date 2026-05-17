@@ -91,6 +91,7 @@ body {
   html {
     scroll-behavior: auto;
   }
+
   *,
   *::before,
   *::after {
@@ -114,7 +115,7 @@ main {
   --line: rgba(0, 0, 0, 0.16);
   --shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
 
-  --container: 1240px;
+  --container: 1280px;
   --pad: 16px;
 
   --h2: 56px;
@@ -133,7 +134,7 @@ main {
 }
 
 img {
-  max-width: 100%;
+  /* max-width: 100%; */
   height: auto;
   display: block;
 }
@@ -148,10 +149,7 @@ button {
   color: inherit;
 }
 
-.container {
-  width: min(calc(100% - (var(--pad) * 2)), var(--container));
-  margin-inline: auto;
-}
+.container {}
 
 .skip {
   position: absolute;
@@ -170,19 +168,56 @@ button {
   outline: none;
 }
 
-/* Header */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 120;
+/* Masthead (desktop layout like Blocks.jpg) */
+.mast {
+  position: relative;
+  z-index: 10;
 }
 
-.header__inner {
+.mast__top {
+  position: relative;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: end;
-  gap: 14px;
-  padding: 14px 0;
+  padding: 28px 0px;
+}
+
+.mast__zigzag {
+  justify-self: center;
+  position: relative;
+  /* padding: 230px 0; */
+}
+
+.mast__tagline {
+  position: absolute;
+  right: -145px;
+  top: 95%;
+  transform: translateY(-50%);
+  max-width: 149px;
+  font-size: 10px;
+  line-height: 1.25;
+  text-transform: lowercase;
+  opacity: 0.85;
+}
+
+.mast__mid {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 0 18px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+.mast__dots {
+  letter-spacing: 0.18em;
+}
+
+.mast__word {
+  letter-spacing: 0.32em;
 }
 
 .brand {
@@ -194,41 +229,27 @@ button {
 .brand__mark {
   width: 34px;
   height: 18px;
-  background: url("Satan%20Hussein%20Website%20(Copy)%20(3)/Vector.png") center / contain no-repeat;
+  background: url("img/zigzag.png") center / contain no-repeat;
 }
 
 .nav {
   display: none;
   align-items: center;
-  gap: 18px;
-  margin-left: auto;
+  /* justify-content: center; */
+  gap: 60px;
+  padding: 105px 0 26px;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0.85;
 }
 
 .nav__link {
-  position: relative;
   font-family: "Gilroy", system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 14px;
   text-transform: lowercase;
-  letter-spacing: 0.02em;
-  padding: 10px 12px;
-}
-
-.nav__link::before {
-  content: "";
-  position: absolute;
-  inset: -6px -10px;
-  background: url("Satan%20Hussein%20Website%20(Copy)%20(5)/Vector%2042.png") center / 100% 100% no-repeat;
-  opacity: 0;
-  transform: translateY(2px);
-  transition: opacity 140ms ease, transform 140ms ease;
-  pointer-events: none;
-}
-
-.nav__link:hover::before,
-.nav__link:focus-visible::before {
-  opacity: 1;
-  transform: translateY(0);
+  letter-spacing: 0.01em;
+  padding: 8px 10px;
 }
 
 .nav__link:focus-visible {
@@ -236,6 +257,10 @@ button {
 }
 
 .burger {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -249,7 +274,7 @@ button {
 
 .burger__lines {
   width: 26px;
-  height: 14px;  
+  height: 14px;
   position: relative;
 }
 
@@ -273,9 +298,20 @@ button {
 }
 
 @media (min-width: 1440px) {
+  .mast__top {
+    height: 100vh;
+  }
+
+  .mast__mid {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+  }
+
   .nav {
     display: flex;
   }
+
   .burger {
     display: none;
   }
@@ -317,7 +353,7 @@ button {
 
 .menu__link {
   position: relative;
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Gilroy", system-ui, sans-serif;
   font-weight: 700;
   font-size: 26px;
   text-align: center;
@@ -329,7 +365,6 @@ button {
   content: "";
   position: absolute;
   inset: -10px -14px;
-  background: url("Satan%20Hussein%20Website%20(Copy)%20(5)/Vector%2039.png") center / 100% 100% no-repeat;
   opacity: 0;
   transition: opacity 140ms ease;
   pointer-events: none;
@@ -347,12 +382,11 @@ button {
 /* Typography helpers */
 .h2 {
   margin: 0;
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Ekran", "Gilroy", system-ui, sans-serif;
   font-size: var(--h2);
   line-height: var(--h2-lh);
   letter-spacing: -0.01em;
   text-transform: lowercase;
-  transform: skewX(-8deg);
 }
 
 .h2--invert {
@@ -361,19 +395,23 @@ button {
 
 .lead {
   margin: 18px 0 0;
-  font-size: var(--lead);
+  font-size: 22px;
   line-height: 1.2;
   font-weight: 800;
+  line-height: 27px;
+  letter-spacing: -5%;
 }
 
 .p {
   margin: 18px 0 0;
   font-size: var(--p);
   line-height: 1.45;
+  font-weight: 600;
 }
 
 .section {
   padding: 42px 0;
+  position: relative;
 }
 
 @media (min-width: 1440px) {
@@ -387,15 +425,27 @@ button {
   color: rgba(255, 255, 255, 0.92);
 }
 
+.video-border-1 {
+  position: absolute;
+  z-index: 50;
+}
+
+.video-border-2 {
+  position: absolute;
+  z-index: 50;
+}
+
 /* Buttons */
 .btn {
+  position: relative;
+  z-index: 200;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 64px;
   padding: 0 28px;
   border-radius: 999px;
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Ekran", "Gilroy", system-ui, sans-serif;
   font-size: 28px;
   letter-spacing: 0.02em;
   text-transform: lowercase;
@@ -417,6 +467,13 @@ button {
 
 .btn--primary:hover {
   background: #11121a;
+}
+
+.btn--about {
+  margin-top: 22px;
+  height: 64px;
+  padding-inline: 30px;
+  font-size: 28px;
 }
 
 .btn--price {
@@ -447,30 +504,24 @@ button {
   /* padding: 34px 0 26px; */
 }
 
-.hero__grid {
-  display: grid;
-  gap: 22px;
-  grid-template-areas:
-    "copy"
-    "media"
-    "cta";
-}
+.hero__grid {}
 
 .hero__copy {
-  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
-.hero__copy__wrap{
- display: flex;
+
+.hero__copy__wrap {
+  display: block;
 }
+
 .hero__media {
   grid-area: media;
 }
 
 .hero__cta {
-  grid-area: cta;
-  display: grid;
-  gap: 14px;
-  justify-items: center;
+  position: relative;
 }
 
 .hero__btn {
@@ -479,7 +530,7 @@ button {
 
 .hero__title {
   margin: 0;
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Ekran", "Gilroy", system-ui, sans-serif;
   font-weight: 700;
   font-size: 90px;
   line-height: 0.88;
@@ -493,25 +544,29 @@ button {
 }
 
 .hero__lead {
-  margin: 16px 0 0;
-  font-size: 18px;
-  font-weight: 800;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
   line-height: 1.15;
 }
 
 .launch {
-  position: relative;
+  position: absolute;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-top: 16px;
-  padding: 18px 20px;
+  width: 467px;
+  height: 107px;
+  top: 69%;
+  right: 0;
+  z-index: 1;
 }
 
 .launch__ring {
   position: absolute;
   inset: -8px -14px;
-  background: url("Satan%20Hussein%20Website%20(Copy)%20(4)/Vector%2024.png") center / contain no-repeat;
+  background: url("img/oval-launch.svg") center / contain no-repeat;
   pointer-events: none;
 }
 
@@ -521,16 +576,26 @@ button {
   font-weight: 800;
 }
 
-.hero__footnote {
-  margin: 18px 0 0;
-  font-size: 12px;
-  text-align: center;
+.hero__mediaNote {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 100%;
+  font-size: 10px;
+  opacity: 0.85;
+}
+
+.hero__mediaNoteZigzag {
+  width: 28px;
+  height: 10px;
+  background: url("img/zigzag.png") center / contain no-repeat;
 }
 
 .hero__media {
   position: relative;
-  display: grid;
-  place-items: center;
+  bottom: 75px;
 }
 
 .hero__collage {
@@ -540,46 +605,55 @@ button {
 
 @media (min-width: 1440px) {
   .hero {
-    padding: 70px 0 40px;
+    padding: 0px 0 40px;
   }
+
   .hero__grid {
-    grid-template-columns: 1.05fr 0.95fr;
-    align-items: center;
-    gap: 44px;
-    grid-template-areas:
-      "copy media"
-      "cta media";
+    display: flex;
+    justify-content: center;
   }
+
   .hero__title {
-    font-size: 120px;
+    font-size: 170px;
   }
-  .hero__footnote {
-    text-align: left;
+
+  .hero__mediaNote {
+    justify-content: flex-end;
+    font-size: 10px;
+    position: absolute;
+    bottom: 15px;
+    right: 75px;
   }
+
+  .hero__lead {
+    font-size: 22px;
+    width: 360px;
+  }
+
   .hero__cta {
     justify-items: start;
   }
+
   .hero__btn {
     width: auto;
   }
+
   .hero__collage {
-    width: 100%;
-    max-width: 720px;
+    width: 740px;
   }
 }
 
 /* Two column layout */
 .twoCol {
-  display: grid;
-  gap: 26px;
-  align-items: start;
+  display: flex;
 }
 
 @media (min-width: 1440px) {
-  .twoCol {
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 46px;
-    align-items: center;
+  .twoCol__copy {
+    .h2 {
+      rotate: -2deg;
+      font-size: 110px;
+    }
   }
 }
 
@@ -587,26 +661,29 @@ button {
 .tape {
   position: relative;
   display: inline-flex;
-  margin-top: 22px;
-  padding: 14px 16px;
 }
 
 .tape__bg {
   position: absolute;
   inset: -8px -18px;
-  background: url("Satan%20Hussein%20Website%20(Copy)%20(4)/Electrical%20Tape%2014%201.png") center / contain no-repeat;
+  background: url("img/tape-red.png") center / contain no-repeat;
   pointer-events: none;
+  background-size: 437px;
+  z-index: 10;
 }
 
 .tape__text {
-  position: relative;
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  position: absolute;
+  font-family: "Ekran", "Gilroy", system-ui, sans-serif;
   font-weight: 700;
   color: #fff;
   font-size: 28px;
   letter-spacing: 0.02em;
   text-transform: lowercase;
-  transform: skewX(-8deg);
+  rotate: 2deg;
+  top: 55px;
+  left: 75px;
+  z-index: 20;
 }
 
 .tape--wide {
@@ -620,33 +697,66 @@ button {
 
 /* Ovals list */
 .ovals {
-  display: grid;
-  gap: 14px;
-  margin-top: 16px;
+  width: 437px;
+  height: 250px;
+  position: relative;
 }
 
 .oval {
-  position: relative;
-  padding: 18px 22px;
+  position: absolute;
   min-height: 74px;
 }
 
 .oval__ring {
   position: absolute;
-  inset: -8px -14px;
-  background: url("Satan%20Hussein%20Website%20(Copy)%20(4)/Vector%2022.png") center / contain no-repeat;
-  pointer-events: none;
+  width: 250px;
+}
+
+.oval-bittuev {
+  background: url(./img/my-way/circle-bituev.svg) no-repeat;
+  top: -40px;
+  right: 55px;
+  width: 260px;
+  rotate: -2deg;
+}
+
+.oval-mayot {
+  background: url(./img/my-way/circle-mayot.svg) no-repeat;
+  top: 21px;
+  right: 153px;
+  width: 282px;
+  rotate: 0deg;
+}
+
+.oval-ram {
+  background: url(./img/my-way/circle-ran.svg) no-repeat;
+  top: 83px;
+  right: 0px;
+  width: 282px;
+  rotate: 0deg;
+}
+
+.oval-obla {
+  background: url(./img/my-way/circle-obla.svg) no-repeat;
+  top: 146px;
+  right: 120px;
+  width: 305px;
+  rotate: -2deg;
 }
 
 .oval__text {
-  position: relative;
+  position: absolute;
   font-size: 20px;
   line-height: 1.35;
 }
 
 @media (min-width: 1440px) {
   .oval__text {
-    font-size: 22px;
+    font-size: 15px;
+    top: 22px;
+    left: 70px;
+    width: 100%;
+    font-weight: 600;
   }
 }
 
@@ -656,8 +766,8 @@ button {
 }
 
 .collageStats__img {
-  width: min(100%, 520px);
-  margin-inline: auto;
+  width: 840px;
+  /* height: 1262px; */
 }
 
 .collageStats__labels {
@@ -675,35 +785,89 @@ button {
 
 .collageStats__label--streams {
   right: 16%;
-  top: 28%;
+  top: 41%;
+  font-size: 28px;
+  rotate: -3.85deg;
 }
 
 .collageStats__label--credits {
   right: 12%;
-  top: 55%;
+  top: 67%;
   color: var(--red);
+  font-size: 28px;
+  rotate: 0.29deg;
 }
 
 .collageStats__label--years {
-  right: 20%;
-  bottom: 20%;
-  color: rgba(0, 0, 0, 0.85);
+  right: 16%;
+  bottom: 10%;
+  font-size: 28px;
+  color: rgba(255, 255, 255, 1);
+  rotate: 5deg;
 }
 
 /* Video block */
 .video {
-  margin-top: 28px;
   display: grid;
   place-items: center;
   height: 540px;
-  border-radius: 0;
-  background: radial-gradient(900px 360px at 30% 20%, rgba(255, 255, 255, 0.06), transparent 70%), var(--dark);
-  box-shadow: var(--shadow);
+  background: var(--dark);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
+.video-header-wrap {
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  position: relative;
+  >div {
+    display: flex;
+    gap: 24px;
+  }
+}
+
+.video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.video__frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.video__frame-top {
+  top: -10px;
+  z-index: 2;
+}
+
+.video__frame-bottom {
+  bottom: -25px;
+  z-index: 2;
+}
+
+
 .video__play {
+  position: relative;
+  z-index: 2;
   width: 0;
   height: 0;
   border-left: 90px solid #fff;
@@ -716,6 +880,7 @@ button {
   .video {
     height: 620px;
   }
+
   .video__play {
     border-left-width: 140px;
     border-top-width: 82px;
@@ -766,7 +931,7 @@ button {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Ekran", "Gilroy", system-ui, sans-serif;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: lowercase;
@@ -775,13 +940,12 @@ button {
 .courseStats__label {
   position: absolute;
   color: rgba(255, 255, 255, 0.92);
-  transform: skewX(-8deg);
 }
 
 .courseStats__label--days {
   left: 50%;
   top: 42%;
-  transform: translateX(-30%) skewX(-8deg);
+  transform: translateX(-30%);
   font-size: 20px;
 }
 
@@ -825,12 +989,11 @@ button {
 }
 
 .modules__t {
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Ekran", "Gilroy", system-ui, sans-serif;
   font-weight: 700;
   font-size: 26px;
   letter-spacing: 0.01em;
   text-transform: lowercase;
-  transform: skewX(-8deg);
 }
 
 .modules__logo {
@@ -840,7 +1003,7 @@ button {
   align-items: center;
   justify-content: flex-end;
   opacity: 0.9;
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Gilroy", system-ui, sans-serif;
   font-weight: 700;
 }
 
@@ -857,13 +1020,16 @@ button {
   .modules {
     padding: 48px 44px;
   }
+
   .modules__list {
     grid-template-columns: 1fr 1fr;
     gap: 22px 34px;
   }
+
   .modules__list li {
     grid-template-columns: 110px 1fr;
   }
+
   .modules__t {
     font-size: 34px;
   }
@@ -892,11 +1058,10 @@ button {
 
 .card__title {
   margin: 0;
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Ekran", "Gilroy", system-ui, sans-serif;
   font-size: 28px;
   letter-spacing: 0.01em;
   text-transform: lowercase;
-  transform: skewX(-8deg);
 }
 
 .card__text {
@@ -910,9 +1075,11 @@ button {
     grid-template-columns: 1fr 1fr;
     gap: 18px;
   }
+
   .card {
     padding: 22px 22px;
   }
+
   .card__title {
     font-size: 32px;
   }
@@ -957,7 +1124,7 @@ button {
   color: #fff;
   padding: 10px 18px;
   border-radius: 12px;
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Ekran", "Gilroy", system-ui, sans-serif;
   font-weight: 700;
   font-size: 30px;
   text-transform: lowercase;
@@ -983,7 +1150,7 @@ button {
 .priceCard__price {
   margin-top: 18px;
   text-align: center;
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Ekran", "Gilroy", system-ui, sans-serif;
   font-weight: 700;
   font-size: 30px;
 }
@@ -1002,7 +1169,7 @@ button {
 .focus__ring {
   position: absolute;
   inset: -8px -10px;
-  background: url("Satan%20Hussein%20Website%20(Copy)%20(4)/Vector%2023.png") center / contain no-repeat;
+  background: url("img/oval-b.png") center / contain no-repeat;
   pointer-events: none;
 }
 
@@ -1025,18 +1192,22 @@ button {
     gap: 28px;
     align-items: center;
   }
+
   .pricing {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     margin-top: 46px;
   }
+
   .priceCard {
     padding: 40px 34px 34px;
   }
+
   .priceCard__label {
     font-size: 36px;
     top: -22px;
   }
+
   .priceCard__num {
     font-size: 76px;
   }
@@ -1086,7 +1257,7 @@ button {
 }
 
 .review__name {
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Ekran", "Gilroy", system-ui, sans-serif;
   font-weight: 700;
   font-size: 28px;
   letter-spacing: 0.02em;
@@ -1131,9 +1302,11 @@ button {
   .reviews__viewport {
     grid-auto-columns: min(100%, 820px);
   }
+
   .review {
     padding: 22px 22px;
   }
+
   .review__name {
     font-size: 34px;
   }
@@ -1187,7 +1360,7 @@ button {
   align-items: center;
   justify-items: start;
   opacity: 0.9;
-  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-family: "Gilroy", system-ui, sans-serif;
 }
 
 .contacts__dots {
@@ -1214,7 +1387,6 @@ button {
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   text-align: center;
-}
 }
 
 /* Mobile-first: 375px canvas */
